@@ -1,4 +1,4 @@
-class SceneManager extends PIXI.Container {
+export default class SceneManager extends PIXI.Container {
     constructor(renderer){
         super();
         this.renderer = renderer;
@@ -15,10 +15,9 @@ class SceneManager extends PIXI.Container {
             return;
         }
         this.currentScene = value;
-        this.currentScene.manager = this;
         this.currentScene.position.set(this.renderer.width / 2, this.renderer.height / 2);
+        this.currentScene.initialize(this);
         this.addScene(this.currentScene);
-        this.scene.initialize();
 
         this.children.length = 0;
         this.addChildAt(this.currentScene, 0);
@@ -31,11 +30,12 @@ class SceneManager extends PIXI.Container {
     }
 
     renderScene(name){
-        if(this.currentScene != null && this.currentScene.name === name){
+        if(this.scene != null && this.scene.name === name){
             return;
         }
-        if(this.currentScene != null){
-            this.renderer.stage.removeChild(this.currentScene);
+        if(this.scene != null){
+            this.scene.destroy();
+            this.renderer.stage.removeChild(this.scene);
         }
         this.scene = this.getSceneByName(name);
         this.renderer.stage.addChild(this.scene);
@@ -45,7 +45,6 @@ class SceneManager extends PIXI.Container {
         if(this.scenes.indexOf(scene) !== -1) {
             return this;
         }
-        scene.manager = this;
         this.scenes.push(scene);
         return scene;
     }

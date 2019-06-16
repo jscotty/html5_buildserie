@@ -1,11 +1,27 @@
 //----- states
-const GAMESTATE = 'game';
-const MENUSTATE = 'menu';
+export { sceneStates, uiAssets, menuAssets, gameAssets, artifactsAssets };
+var sceneStates = {
+    game: 'game',
+    menu: 'menu',
+};
 
-//----- ui
-const BUTTON_PINK_NORMAL = 'assets/button.png';
-const BUTTON_PINK_PRESSED = 'assets/button_pressed.png';
-const BUTTON_PINK_HOVER = 'assets/button_hover.png';
+var uiAssets = {
+    buttonPinkNormal: '_assets/button.png',
+    buttonPinkPressed: '_assets/button_pressed.png',
+    buttonPinkHovered: '_assets/button_hover.png',
+    
+    buttonPinkSmall: '_assets/button_small.png',
+};
 
-//----- test
-const CHARACTER_TEST = 'assets/test_character.png';
+var menuAssets = {
+    background: '_assets/menu.png',
+};
+
+var gameAssets = {
+    background: '_assets/background.png',
+    character: '_assets/test_character.png',
+};
+
+var artifactsAssets = {
+    cloud: '_assets/cloud.png',
+};

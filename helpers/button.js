@@ -1,4 +1,4 @@
-class Button{
+export default class Button{
     constructor(scene, normal, pressed, hover){
         var textureNormal = PIXI.Texture.from(normal);
         var texturePressed = PIXI.Texture.from(pressed);
@@ -79,5 +79,10 @@ class Button{
     
     setOnPointerClick(func){
         this.button.on('pointertap', func);
+    }
+    
+    destroy(){
+        this.button.destroy();
+        this.text.destroy();
     }
 }
