@@ -1,8 +1,9 @@
 export default class Button{
-    constructor(scene, normal, pressed, hover){
-        var textureNormal = PIXI.Texture.from(normal);
-        var texturePressed = PIXI.Texture.from(pressed);
-        var textureHover = PIXI.Texture.from(hover);
+    constructor(scene, sheetInformation){
+        var textures = PIXI.Loader.shared.resources[sheetInformation.sheet].textures;
+        var textureNormal = textures[sheetInformation.normal];
+        var texturePressed = textures[sheetInformation.pressed];
+        var textureHover = textures[sheetInformation.hover];
         
         this.isPressed = false;
         this.isOver = false;

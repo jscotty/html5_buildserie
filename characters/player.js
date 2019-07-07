@@ -3,10 +3,10 @@ import Button from '../helpers/button.js';
 import { uiAssets } from '../helpers/references.js';
 
 export default class Player extends PlayerBase{
-    constructor(scene, playerImage, xPos, yPos){
-        super(scene, playerImage, xPos, yPos);
-        this.buttonLeft = new Button(scene, uiAssets.buttonPinkSmall, uiAssets.buttonPinkSmall, uiAssets.buttonPinkSmall);
-        this.buttonRight = new Button(scene, uiAssets.buttonPinkSmall, uiAssets.buttonPinkSmall, uiAssets.buttonPinkSmall);
+    constructor(scene, playerAnimation, xPos, yPos){
+        super(scene, playerAnimation, xPos, yPos);
+        this.buttonLeft = new Button(scene, uiAssets.smallPinkButtons);
+        this.buttonRight = new Button(scene, uiAssets.smallPinkButtons);
         this.buttonLeft.setPosition(xPos - 75, yPos - 75);
         this.buttonLeft.setText("<");
         var player = this;
@@ -24,8 +24,8 @@ export default class Player extends PlayerBase{
         this.desiredPosition = xPos;
     }
     
-    update(){
-        super.update();
+    update(delta){
+        super.update(delta);
         this.buttonLeft.setPosition(this.player.x - 75, this.player.y - 50);
         this.buttonRight.setPosition(this.player.x + 75, this.player.y - 50);
     }

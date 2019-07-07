@@ -1,15 +1,15 @@
 export default class Scene extends PIXI.Container{
-  constructor(name){
-    super();
-    this.name = name;
-  }
+    constructor(name){
+      super();
+      this.name = name;
+    }
 
-  update(delta){
-  }
+    update(delta){
+    }
 
-  initialize(sceneManager){
-  }
+    initialize(sceneManager){
+    }
   
-  destroy(){
-  }
+    destroy(){
+    }
 }

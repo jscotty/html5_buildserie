@@ -1,12 +1,9 @@
+import SpriteAnimation from '../helpers/spriteAnimation.js';
 export default class PlayerBase{
-    constructor(scene, playerImage, xPos, yPos){
-        var texturePlayer = PIXI.Texture.from(playerImage);
-        
-        this.player = new PIXI.Sprite(texturePlayer);
-        this.player.anchor.set(0.5);
+    constructor(scene, playerAnimation, xPos, yPos){
+        this.player = new SpriteAnimation(scene, playerAnimation, xPos, yPos);
         this.player.x = xPos;
         this.player.y = yPos;
-        scene.addChild(this.player);
         
         this.power = 30;
         this.desiredPosition = xPos;
@@ -20,9 +17,11 @@ export default class PlayerBase{
         this.desiredPosition += this.power;
     }
     
-    update(){
+    update(delta){
         var velocity = this.desiredPosition - this.player.x;
         this.player.x += velocity / 10;
+        
+        this.player.update(delta);
     }
     
     destroy(){

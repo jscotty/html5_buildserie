@@ -1,0 +1,40 @@
+{
+"frames": {
+	"medium_btn_normal.png": {
+		"frame": {"x":0, "y":0, "w":95, "h":45},
+		"spriteSourceSize": {"x":0,"y":0,"w":95,"h":45},
+		"sourceSize": {"w":95,"h":45}
+	},
+	"medium_btn_hover.png": {
+		"frame": {"x":0, "y":46, "w":95, "h":45},
+		"spriteSourceSize": {"x":0,"y":0,"w":95,"h":45},
+		"sourceSize": {"w":95,"h":45}
+	},
+	"medium_btn_pressed.png": {
+		"frame": {"x":0, "y":92, "w":95, "h":45},
+		"spriteSourceSize": {"x":0,"y":0,"w":95,"h":45},
+		"sourceSize": {"w":95,"h":45}
+	},
+	"small_btn_hover.png": {
+		"frame": {"x":96, "y":0, "w":36, "h":38},
+		"spriteSourceSize": {"x":0,"y":0,"w":36,"h":38},
+		"sourceSize": {"w":36,"h":38}
+	},
+	"small_btn_norm.png": {
+		"frame": {"x":96, "y":78, "w":36, "h":38},
+		"spriteSourceSize": {"x":0,"y":0,"w":36,"h":38},
+		"sourceSize": {"w":36,"h":38}
+	},
+	"small_btn_pressed.png": {
+		"frame": {"x":96, "y":39, "w":36, "h":38},
+		"spriteSourceSize": {"x":0,"y":0,"w":36,"h":38},
+		"sourceSize": {"w":36,"h":38}
+	}
+
+},
+"meta": {
+	"image": "buttons.png",
+	"size": {"w": 133, "h": 138},
+	"scale": "1"
+}
+}

@@ -11,10 +11,10 @@ export default class Game extends Scene {
 
     initialize(sceneManager){
         this.clouds = [];
-        for(let i = 0; i < 30; i++){
+        for(let i = 0; i < 20; i++){
             var xPos = (Math.random() * 2000) - 1000;
             var yPos = (Math.random() * 300) - 100;
-            this.clouds.push(new Cloud(this, artifactsAssets.cloud, xPos, yPos));
+            this.clouds.push(new Cloud(this, artifactsAssets.clouds, xPos, yPos));
         }
         
         var textureBg = PIXI.Texture.from(gameAssets.background);
@@ -25,9 +25,9 @@ export default class Game extends Scene {
         
         this.addChild(this.background);
         
-        this.player = new Player(this, gameAssets.character, 400, 450);
+        this.player = new Player(this, gameAssets.characterAnimation, 400, 450);
         
-        this.button = new Button(this, uiAssets.buttonPinkNormal, uiAssets.buttonPinkPressed, uiAssets.buttonPinkHovered);
+        this.button = new Button(this, uiAssets.mediumPinkButtons);
         this.button.setPosition(60, 30);
         this.button.setText("back to menu");
         this.button.setOnPointerClick(function(){
@@ -38,7 +38,7 @@ export default class Game extends Scene {
 
     update(delta){
         super.update(delta);
-        this.player.update();
+        this.player.update(delta);
         for(let i = 0; i < this.clouds.length; i++){
             this.clouds[i].update();
         }

@@ -12,8 +12,8 @@ export default class Menu extends Scene {
         this.clouds = [];
         for(let i = 0; i < 30; i++){
             var xPos = (Math.random() * 2000) - 1000;
-            var yPos = (Math.random() * 450) - 100;
-            this.clouds.push(new Cloud(this, artifactsAssets.cloud, xPos, yPos));
+            var yPos = (Math.random() * 400) - 100;
+            this.clouds.push(new Cloud(this, artifactsAssets.clouds, xPos, yPos));
         }
         
         var textureBg = PIXI.Texture.from(menuAssets.background);
@@ -23,8 +23,7 @@ export default class Menu extends Scene {
         this.background.y = 300;
         
         this.addChild(this.background);
-        
-        this.button = new Button(this, uiAssets.buttonPinkNormal, uiAssets.buttonPinkPressed, uiAssets.buttonPinkHovered);
+        this.button = new Button(this, uiAssets.mediumPinkButtons);
         this.button.setPosition(400, 350);
         this.button.setText("to game");
         this.button.setOnPointerClick(function(){
