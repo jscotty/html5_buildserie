@@ -1,4 +1,6 @@
 import SpriteAnimation from '../helpers/spriteAnimation.js';
+import Tweener from '../helpers/tweener.js';
+
 export default class PlayerBase{
     constructor(scene, playerAnimation, xPos, yPos){
         this.player = new SpriteAnimation(scene, playerAnimation, xPos, yPos);
@@ -9,18 +11,17 @@ export default class PlayerBase{
         this.desiredPosition = xPos;
     }
     
-    MoveLeft(){
-        this.desiredPosition -= this.power;
+    MoveLeft(ease){
+        this.desiredPosition = this.player.x - this.power;
+        Tweener.startTweenX(this.player, this.desiredPosition, 0.5, ease);
     }
     
-    MoveRight(){
-        this.desiredPosition += this.power;
+    MoveRight(ease){
+        this.desiredPosition = this.player.x + this.power;
+        Tweener.startTweenX(this.player, this.desiredPosition, 0.5, ease);
     }
     
     update(delta){
-        var velocity = this.desiredPosition - this.player.x;
-        this.player.x += velocity / 10;
-        
         this.player.update(delta);
     }
     

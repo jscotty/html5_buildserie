@@ -1,6 +1,7 @@
 import PlayerBase from './playerBase.js';
 import Button from '../helpers/button.js';
 import { uiAssets } from '../helpers/references.js';
+import Ease from '../helpers/ease.js';
 
 export default class Player extends PlayerBase{
     constructor(scene, playerAnimation, xPos, yPos){
@@ -11,14 +12,14 @@ export default class Player extends PlayerBase{
         this.buttonLeft.setText("<");
         var player = this;
         this.buttonLeft.setOnPointerClick(function(){
-            player.MoveLeft();
+            player.MoveLeft(Ease.sineOut);
         });
         this.buttonRight.setPosition(xPos + 75, yPos - 75);
         this.buttonRight.setText(">");
         this.buttonRight.setOnPointerClick(function(){
-            player.MoveRight();
+            player.MoveRight(Ease.sineOut);
         });
-        
+
         
         this.power = 60;
         this.desiredPosition = xPos;

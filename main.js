@@ -2,6 +2,7 @@ import SceneManager from './scenes/sceneManager.js';
 import Menu from './scenes/menu.js';
 import Game from './scenes/game.js';
 import MathHelper from './helpers/mathhelper.js';
+import Tweener from './helpers/tweener.js';
 import { sceneStates, uiAssets, gameAssets, artifactsAssets } from './helpers/references.js';
 
 const width = 800;
@@ -11,6 +12,8 @@ const renderer= new PIXI.Application({
     width: width, height: height, backgroundColor: 0x6cd6e0, resolution: window.devicePixelRatio || 1,
 });
 document.body.appendChild(renderer.view);
+
+Tweener.init();
 
 PIXI.Loader.shared
 .add(uiAssets.mediumPinkButtons.sheet)
@@ -25,6 +28,7 @@ PIXI.Loader.shared
  
     renderer.ticker.add(function update(delta){
         sceneManager.update(delta);
+        Tweener.update(delta);
     });
 });
 
